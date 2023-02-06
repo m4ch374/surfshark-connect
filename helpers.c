@@ -13,7 +13,8 @@ char **tokenize(char *string, char *delimiter) {
     // Last one for null pointer
     char **tokens = malloc((NUM_TOKENS + 1) * sizeof(*tokens));
 
-    char *token = strtok(string, delimiter);
+    char *strcpy = strdup(string);
+    char *token = strtok(strcpy, delimiter);
     for (int i = 0; token != NULL; i++) {
         tokens[i] = strdup(token);
         token = strtok(NULL, delimiter);
@@ -21,6 +22,7 @@ char **tokenize(char *string, char *delimiter) {
 
     tokens[NUM_TOKENS] = NULL;
 
+    free(strcpy);
     return tokens;
 }
 

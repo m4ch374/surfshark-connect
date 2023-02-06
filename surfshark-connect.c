@@ -18,8 +18,12 @@ int main(int argc, char **argv) {
     // Switch statement does not work on strings
     if (string_matches(option, LIST_CODE)) {
         list_codes();
+    } else if (string_matches(option, USE_UDP)) {
+        connect(argv[2], false);
+    } else if (string_matches(option, USE_TCP)) {
+        connect(argv[2], true);
     } else {
-        connect_tcp(option);
+        connect(option, true);
     }
 
     return 0;
