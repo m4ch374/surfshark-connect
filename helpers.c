@@ -50,3 +50,25 @@ int get_file_lines(char *file_path) {
 
     return count;
 }
+
+void edit_server_files(char *server, char* cred_path) {
+    char *tmp_file_path = "./tmp_server";
+
+    FILE *file = fopen(server, "r");
+    FILE *tfile = fopen(tmp_file_path, "w");
+
+    char line[1024];
+    while (fgets(line, 1024, file)) {
+        if (strstr(line, "auth-user-pass") != NULL) {
+            fprintf(tfile, "%s", "auth-user-pass ");
+            fprintf(tfile, "%s\n", cred_path);
+        } else {
+            fputs(line, tfile);
+        }
+    }
+
+    fclose(tfile);
+    fclose(file);
+
+    rename(tmp_file_path, server);
+}
