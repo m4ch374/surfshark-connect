@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #define NUM_TOKENS 5
 
@@ -32,4 +33,20 @@ void free_tokens(char **tokens) {
     }
 
     free(tokens);
+}
+
+int get_file_lines(char *file_path) {
+    FILE *file = fopen(file_path, "r");
+
+    if (file == NULL)
+        return -1;
+
+    char c;
+    int count = 0;
+    for (c = getc(file); c != EOF; c = getc(file)) {
+        if (c == '\n')
+            count++;
+    }
+
+    return count;
 }

@@ -8,22 +8,27 @@
 
 int main(int argc, char **argv) {
     
-    if (argc == 1) {
+    if (argc == 1 || argc > 3) {
         printf("%s\n", HELPMSG);
         exit(1);
     }
 
     char *option = argv[1];
+    char *args = argc == 3 ? argv[2] : option;
 
     // Switch statement does not work on strings
     if (string_matches(option, LIST_CODE)) {
         list_codes();
     } else if (string_matches(option, USE_UDP)) {
-        connect(argv[2], false);
+        connect(args, false);
     } else if (string_matches(option, USE_TCP)) {
-        connect(argv[2], true);
+        connect(args, true);
+    } else if (string_matches(option, SET_UNAME)) {
+        set_username(args);
+    } else if (string_matches(option, SET_PASSWD)) {
+        set_passwd(args);
     } else {
-        connect(option, true);
+        connect(args, true);
     }
 
     return 0;
