@@ -88,8 +88,10 @@ void connect(char *country, bool is_tcp) {
     
     free(cred_path_dup);
 
-    if (!country_found) 
+    if (!country_found) {
         printf("\nError: Cannot find code: %s\n", country);
+        print_help_msg();
+    }
 }
 
 void set_username(char *uname) {

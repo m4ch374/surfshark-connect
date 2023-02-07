@@ -9,5 +9,6 @@ char **tokenize(char*, char*);
 void free_tokens(char**);
 int get_file_lines(char*);
 void edit_server_files(char*, char*);
+void print_help_msg();
 
 #endif

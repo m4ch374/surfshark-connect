@@ -72,3 +72,13 @@ void edit_server_files(char *server, char* cred_path) {
 
     rename(tmp_file_path, server);
 }
+
+void print_help_msg() {
+    printf("\nsurfshark-connect [--options] <value>\n");
+    printf("\nAvalible commands:\n");
+    printf("\t--list\n");
+    printf("\t--udp <country_code>\n");
+    printf("\t--tcp <country_code>\n");
+    printf("\t--username <username>\n");
+    printf("\t--passwd <password>\n\n");
+}
