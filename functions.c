@@ -10,9 +10,9 @@
 #define TCP "com_tcp"
 #define UDP "com_udp"
 
-char FILE_DIR[] = "../../test_vpn/server_config/";
+char FILE_DIR[] = "/etc/openvpn/server_config/";
 char TEMPLATE_COMMAND[] = "sudo openvpn ";
-char CRED_PATH[] = "../../test_vpn/login.conf";
+char CRED_PATH[] = "/etc/openvpn/login.conf";
 
 void list_codes() {
     DIR *dir = opendir(FILE_DIR);
@@ -72,6 +72,7 @@ void connect(char *country, bool is_tcp) {
                 char *template_command_dup = strdup(TEMPLATE_COMMAND);
 
                 strcat(FILE_DIR, file->d_name);
+                printf("%s\n", FILE_DIR);
                 edit_server_files(FILE_DIR, cred_path_dup);
                 strcat(template_command_dup, FILE_DIR);
                 execute_success = system(template_command_dup);

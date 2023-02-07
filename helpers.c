@@ -70,7 +70,12 @@ void edit_server_files(char *server, char* cred_path) {
     fclose(tfile);
     fclose(file);
 
-    rename(tmp_file_path, server);
+    char command[1024] = "sudo mv ";
+    strcat(command, tmp_file_path);
+    strcat(command, " ");
+    strcat(command, server);
+
+    system(command);
 }
 
 void print_help_msg() {
