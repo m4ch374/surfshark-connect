@@ -6,7 +6,7 @@
 * No more copy and pasting server config
 * No more entering username and password manually everytime on login
 
-## :thinking: Installation 
+## :sunglasses: Installation 
 
 1. Install prerequisites
 ```
@@ -62,6 +62,12 @@ To edit password:
 ```
 sudo surfshark-connect --passwd <password>
 ```
+
+## :thinking: How to I get my credentials?
+
+1. Navigate to this website: `https://my.surfshark.com`
+2. Login and click `Manual Setup` under the tab `VPN`
+3. Choose `Desktop or mobile` and click on `openvpn`
 
 ## :warning: **Caution!** :warning:
 
