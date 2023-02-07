@@ -44,6 +44,19 @@ void list_codes() {
 }
 
 void connect(char *country, bool is_tcp) {
+    if (get_file_lines(CRED_PATH) == -1) {
+        printf("\nIt seems like you have not setup username and passowrd\n");
+        
+        char input[1024];
+        printf("Enter username: ");
+        scanf("%s", &input);
+        set_username(input);
+
+        printf("Enter passowrd: ");
+        scanf("%s", &input);
+        set_passwd(input);
+    }
+
     DIR *dir = opendir(FILE_DIR);
     
     if (!dir) {
