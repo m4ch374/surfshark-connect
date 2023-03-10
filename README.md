@@ -1,5 +1,7 @@
 # surfshark-connect
 
+## NOTE: There are some incorrect configuration that would lead to DNS leak, will fix soon
+
 ## :book: Description
 ### Streamlines the process of connecting to `Surfshark VPN` via `openvpn`
 
